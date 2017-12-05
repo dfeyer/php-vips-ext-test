@@ -1,0 +1,17 @@
+*:8180 {
+    gzip
+
+    tls off
+    log / stdout
+
+    fastcgi / 127.0.0.1:9000 php {
+      env PHP_BINDIR /usr/local/php5/bin
+    }
+
+    rewrite / {
+      to {path} {path}/ /index.php?{query}
+    }
+
+    startup /usr/local/bin/php-fpm-wrapper &
+    shutdown pkill php-fpm
+}

@@ -1,0 +1,5 @@
+{
+    "require": {
+        "rokka/imagine-vips": "^0.0.5"
+    }
+}
